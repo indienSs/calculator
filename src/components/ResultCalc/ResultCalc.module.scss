@@ -1,0 +1,13 @@
+.result_empty {
+  width: 243px;
+  height: 448px;
+  border: 2px dashed #c4c4c4;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: #f0f9ff;
+  }
+}

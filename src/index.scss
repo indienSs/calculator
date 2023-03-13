@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e5e5e5;
+  height: 100vh;
+  overflow: auto;
+}
+
+.calc_field {
+  width: 700px;
+  height: 700px;
+  background: #fff;
+  padding-top: 70px;
+
+  .calculators {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0px 80px;
+    gap: 40px;
+    align-items: end;
+
+    .switch {
+      margin-bottom: 30px;
+      cursor: pointer;
+    }
+  }
+}
