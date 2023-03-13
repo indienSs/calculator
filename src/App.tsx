@@ -1,12 +1,33 @@
-import { FC, useRef, useState } from "react";
+import { FC } from "react";
 
 import ResultCalc from "./components/ResultCalc";
 import ConstructorCalc from "./components/ConstructorCalc";
 import runtime from "./assets/img/runtime.png";
 import constructor from "./assets/img/constructor.png";
+import { useDispatch, useSelector } from "react-redux";
+import { calcItemsSelector } from "./redux/calcReducer/selectors";
+import { setConstructorCalc } from "./redux/calcReducer/slice";
 
 const App: FC = () => {
-  const [isConstructor, setIsConstructor] = useState<boolean>(true);
+  const {
+    displayMoved,
+    numbersMoved,
+    operationsMoved,
+    resultButtonMoved,
+    isConstructor,
+  } = useSelector(calcItemsSelector);
+
+  const dispatch = useDispatch();
+
+  const noMoved: boolean =
+    displayMoved && numbersMoved && operationsMoved && resultButtonMoved;
+
+  const handleConstructorClick = () => {
+    if (noMoved) {
+      dispatch(setConstructorCalc(!isConstructor));
+    }
+  };
+  console.log(isConstructor);
 
   return (
     <div className="app">
@@ -18,7 +39,7 @@ const App: FC = () => {
               src={isConstructor ? constructor : runtime}
               alt="switch-button"
               className="switch"
-              onClick={() => setIsConstructor((prev) => !prev)}
+              onClick={handleConstructorClick}
             />
             <ResultCalc />
           </div>

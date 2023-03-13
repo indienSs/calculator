@@ -1,0 +1,27 @@
+.res_numbers {
+  width: 240px;
+  height: 228px;
+  font-size: 36px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+
+  button {
+    width: 72px;
+    height: 48px;
+    left: 80px;
+    top: 250px;
+    font-weight: 600;
+    line-height: 15px;
+    background: #ffffff;
+    border: 1px solid #e2e3e5;
+    border-radius: 6px;
+  }
+
+  .zero_button {
+    width: 152px;
+  }
+}

@@ -1,6 +1,7 @@
 export type CalcReady = {
   displayMoved: boolean;
-  numbersMooved: boolean;
+  numbersMoved: boolean;
   operationsMoved: boolean;
   resultButtonMoved: boolean;
+  isConstructor: boolean;
 };

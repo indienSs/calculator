@@ -5,44 +5,35 @@ import styles from "./ResultCalc.module.scss";
 import addItem from "../../assets/img/add-element.png";
 import { useSelector } from "react-redux/es/exports";
 import { calcItemsSelector } from "../../redux/calcReducer/selectors";
-import CalcDisplay from "../CalcDisplay";
-import CalcOperations from "../CalcOperations";
-import CalcNumbers from "../CalcNumbers";
-import CalcResultButton from "../CalcResultButton";
+import ResDisplay from "../ResDisplay";
+import ResOperations from "../ResOperations";
+import ResNumbers from "../ResNumbers";
+import ResResultButton from "../ResResultButton";
 
 const ResultCalc: FC = () => {
-  const { displayMoved, numbersMooved, operationsMoved, resultButtonMoved } =
+  const { displayMoved, numbersMoved, operationsMoved, resultButtonMoved } =
     useSelector(calcItemsSelector);
 
   const noMoved: boolean =
-    displayMoved && numbersMooved && operationsMoved && resultButtonMoved;
-
-  const handleClickForm = (e: React.MouseEvent<HTMLElement>) => {
-    console.log(e.target);
-    console.log(resultForm);
-  };
+    displayMoved || numbersMoved || operationsMoved || resultButtonMoved;
 
   const resultForm = useRef(null);
 
   if (!noMoved) {
     return (
-      <div
-        className={styles.result_empty}
-        onClick={handleClickForm}
-        ref={resultForm}
-      >
+      <div className={styles.result_empty} ref={resultForm}>
         <img src={addItem} alt="move-form" />
       </div>
     );
   }
 
   return (
-    <div>
-      {displayMoved && <CalcDisplay />}
-      <div>
-        {operationsMoved && <CalcOperations />}
-        {numbersMooved && <CalcNumbers />}
-        {resultButtonMoved && <CalcResultButton />}
+    <div className={styles.result_filled}>
+      {displayMoved && <ResDisplay />}
+      <div className={styles.movable_items}>
+        {operationsMoved && <ResOperations />}
+        {numbersMoved && <ResNumbers />}
+        {resultButtonMoved && <ResResultButton />}
       </div>
     </div>
   );

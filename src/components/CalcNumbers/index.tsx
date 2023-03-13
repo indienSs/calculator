@@ -1,10 +1,17 @@
 import { FC } from "react";
+import { useSelector } from "react-redux";
+import { calcItemsSelector } from "../../redux/calcReducer/selectors";
 
 import styles from "./CalcNumbers.module.scss";
 
 const CalcNumbers: FC = () => {
+  const { numbersMoved } = useSelector(calcItemsSelector);
   return (
-    <div className={styles.calc_numbers} draggable={true}>
+    <div
+      className={styles.calc_numbers}
+      draggable={!numbersMoved}
+      style={{ opacity: numbersMoved ? 0.3 : 1 }}
+    >
       <button>7</button>
       <button>8</button>
       <button>9</button>

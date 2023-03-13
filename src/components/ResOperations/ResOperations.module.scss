@@ -1,0 +1,18 @@
+.res_operations {
+  width: 240px;
+  height: 60px;
+  font-size: 36px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  button {
+    width: 52px;
+    height: 48px;
+    background: #ffffff;
+    border: 1px solid #e2e3e5;
+    border-radius: 6px;
+  }
+}

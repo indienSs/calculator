@@ -1,0 +1,16 @@
+.res_button {
+    width: 240px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .equals {
+      background-color: #5d5fef;
+      border-radius: 5px;
+      width: 230px;
+      height: 52px;
+      color: #fff;
+      border: none;
+    }
+  }

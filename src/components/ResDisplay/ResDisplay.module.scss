@@ -1,0 +1,22 @@
+.res_display {
+  width: 240px;
+  height: 60px;
+  font-size: 36px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .numbers {
+    background-color: #f3f4f6;
+    display: flex;
+    justify-content: flex-end;
+    border-radius: 5px;
+    width: 230px;
+
+    h3 {
+      margin: 0;
+      padding-right: 10px;
+    }
+  }
+}
