@@ -14,8 +14,10 @@ const ResDisplay: FC = () => {
 
   const removeDisplay = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.detail === 2) {
-      dispatch(setDisplayCalc(false));
-      dispatch(setConstructorCalc(true));
+      if (isConstructor) {
+        dispatch(setDisplayCalc(false));
+        dispatch(setConstructorCalc(true));
+      }
     }
   };
 

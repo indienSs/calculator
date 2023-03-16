@@ -1,7 +1,10 @@
 import { FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { calcItemsSelector } from "../../redux/calcReducer/selectors";
-import { setConstructorCalc, setNumbersCalc } from "../../redux/calcReducer/slice";
+import {
+  setConstructorCalc,
+  setNumbersCalc,
+} from "../../redux/calcReducer/slice";
 
 import styles from "./ResNumbers.module.scss";
 
@@ -12,8 +15,10 @@ const ResNumbers: FC = () => {
 
   const removeNumbers = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.detail === 2) {
-      dispatch(setNumbersCalc(false));
-      dispatch(setConstructorCalc(true));
+      if (isConstructor) {
+        dispatch(setNumbersCalc(false));
+        dispatch(setConstructorCalc(true));
+      }
     }
   };
 

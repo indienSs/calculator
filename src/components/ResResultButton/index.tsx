@@ -15,8 +15,10 @@ const ResResultButton: FC = () => {
 
   const removeResultButton = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.detail === 2) {
-      dispatch(setButtonCalc(false));
-      dispatch(setConstructorCalc(true));
+      if (isConstructor) {
+        dispatch(setButtonCalc(false));
+        dispatch(setConstructorCalc(true));
+      }
     }
   };
 
