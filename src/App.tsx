@@ -27,7 +27,6 @@ const App: FC = () => {
       dispatch(setConstructorCalc(!isConstructor));
     }
   };
-  console.log(isConstructor);
 
   return (
     <div className="app">

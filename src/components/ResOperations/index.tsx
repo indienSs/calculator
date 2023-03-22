@@ -22,16 +22,23 @@ const ResOperations: FC = () => {
     }
   };
 
+  const showOperation = (e: any) => {
+    if (!isConstructor) {
+      const resOperation = e.target.innerHTML;
+      console.log(resOperation);
+    }
+  };
+
   return (
     <div
       className={styles.res_operations}
       onClick={removeOperations}
-      draggable={true}
+      draggable={isConstructor}
     >
-      <button>/</button>
-      <button>x</button>
-      <button>-</button>
-      <button>+</button>
+      <button onClick={showOperation}>/</button>
+      <button onClick={showOperation}>x</button>
+      <button onClick={showOperation}>-</button>
+      <button onClick={showOperation}>+</button>
     </div>
   );
 };

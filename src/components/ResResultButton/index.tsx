@@ -26,7 +26,7 @@ const ResResultButton: FC = () => {
     <div
       className={styles.res_button}
       onClick={removeResultButton}
-      draggable={true}
+      draggable={isConstructor}
     >
       <button className={styles.equals}>=</button>
     </div>
