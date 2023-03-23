@@ -22,7 +22,7 @@ const CalcNumbers: FC = () => {
       <button>2</button>
       <button>3</button>
       <button className={styles.zero_button}>0</button>
-      <button>,</button>
+      <button>.</button>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { calcItemsSelector } from "../../redux/calcReducer/selectors";
 import {
@@ -7,6 +7,7 @@ import {
 } from "../../redux/calcReducer/slice";
 import { calcVariablesSelector } from "../../redux/calcVariablesReducer/selectors";
 import {
+  resetFirstNumber,
   setFirstNumber,
   setSecondNumber,
 } from "../../redux/calcVariablesReducer/slice";
@@ -15,6 +16,8 @@ import styles from "./ResNumbers.module.scss";
 
 const ResNumbers: FC = () => {
   const dispatch = useDispatch();
+
+  const [firstClicked, setFirstClicked] = useState<boolean>(false);
 
   const { isConstructor } = useSelector(calcItemsSelector);
   const { firstNumber, secondNumber, operation } = useSelector(
@@ -32,9 +35,16 @@ const ResNumbers: FC = () => {
 
   const showNumber = (e: any) => {
     const resNumber: string = e.target.innerHTML;
-    if (!isConstructor) {
-      if (firstNumber.length < 9) dispatch(setFirstNumber(resNumber));
+    if (isConstructor || firstNumber.length >= 9) {
+      return;
     }
+
+    if (!firstClicked) {
+      dispatch(resetFirstNumber(""));
+      setFirstClicked(true);
+    }
+
+    dispatch(setFirstNumber(resNumber));
   };
 
   return (
@@ -55,7 +65,7 @@ const ResNumbers: FC = () => {
       <button className={styles.zero_button} onClick={showNumber}>
         0
       </button>
-      <button onClick={showNumber}>,</button>
+      <button onClick={showNumber}>.</button>
     </div>
   );
 };

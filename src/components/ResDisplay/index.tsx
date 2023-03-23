@@ -28,7 +28,7 @@ const ResDisplay: FC = () => {
   return (
     <div className={styles.res_display} onClick={removeDisplay}>
       <div className={styles.numbers}>
-        <h3>{operation ? secondNumber : firstNumber}</h3>
+        <h3>{firstNumber}</h3>
       </div>
     </div>
   );

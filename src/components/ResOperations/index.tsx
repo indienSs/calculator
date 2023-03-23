@@ -5,6 +5,12 @@ import {
   setConstructorCalc,
   setOperationsCalc,
 } from "../../redux/calcReducer/slice";
+import { calcVariablesSelector } from "../../redux/calcVariablesReducer/selectors";
+import {
+  resetFirstNumber,
+  resetSecondNumber,
+  setOperation,
+} from "../../redux/calcVariablesReducer/slice";
 
 import styles from "./ResOperations.module.scss";
 
@@ -12,6 +18,7 @@ const ResOperations: FC = () => {
   const dispatch = useDispatch();
 
   const { isConstructor } = useSelector(calcItemsSelector);
+  const { firstNumber, secondNumber } = useSelector(calcVariablesSelector);
 
   const removeOperations = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.detail === 2) {
@@ -25,7 +32,9 @@ const ResOperations: FC = () => {
   const showOperation = (e: any) => {
     if (!isConstructor) {
       const resOperation = e.target.innerHTML;
-      console.log(resOperation);
+      dispatch(setOperation(resOperation));
+      dispatch(resetSecondNumber(firstNumber));
+      dispatch(resetFirstNumber("0"));
     }
   };
 

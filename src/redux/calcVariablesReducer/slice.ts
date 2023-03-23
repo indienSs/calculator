@@ -20,10 +20,21 @@ export const calcVariablesSlice = createSlice({
     setOperation: (state, action: PayloadAction<string>) => {
       state.operation = action.payload;
     },
+    resetFirstNumber: (state, action: PayloadAction<string>) => {
+      state.firstNumber = action.payload;
+    },
+    resetSecondNumber: (state, action: PayloadAction<string>) => {
+      state.secondNumber = action.payload;
+    },
   },
 });
 
-export const { setFirstNumber, setSecondNumber, setOperation } =
-  calcVariablesSlice.actions;
+export const {
+  setFirstNumber,
+  setSecondNumber,
+  setOperation,
+  resetFirstNumber,
+  resetSecondNumber,
+} = calcVariablesSlice.actions;
 
 export default calcVariablesSlice.reducer;
