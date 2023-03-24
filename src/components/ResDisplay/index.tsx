@@ -6,6 +6,11 @@ import {
   setDisplayCalc,
 } from "../../redux/calcReducer/slice";
 import { calcVariablesSelector } from "../../redux/calcVariablesReducer/selectors";
+import {
+  resetFirstNumber,
+  resetSecondNumber,
+  setOperation,
+} from "../../redux/calcVariablesReducer/slice";
 
 import styles from "./ResDisplay.module.scss";
 
@@ -21,6 +26,10 @@ const ResDisplay: FC = () => {
       if (isConstructor) {
         dispatch(setDisplayCalc(false));
         dispatch(setConstructorCalc(true));
+      } else {
+        dispatch(resetFirstNumber("0"));
+        dispatch(resetSecondNumber("0"));
+        dispatch(setOperation(""));
       }
     }
   };
