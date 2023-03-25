@@ -9,7 +9,7 @@ import { calcVariablesSelector } from "../../redux/calcVariablesReducer/selector
 import {
   resetFirstNumber,
   setFirstNumber,
-  setSecondNumber,
+  setStarted,
 } from "../../redux/calcVariablesReducer/slice";
 
 import styles from "./ResNumbers.module.scss";
@@ -17,12 +17,10 @@ import styles from "./ResNumbers.module.scss";
 const ResNumbers: FC = () => {
   const dispatch = useDispatch();
 
-  const [firstClicked, setFirstClicked] = useState<boolean>(false);
+  const [floatClicked, setFloatClicked] = useState<boolean>(false);
 
   const { isConstructor } = useSelector(calcItemsSelector);
-  const { firstNumber, secondNumber, operation } = useSelector(
-    calcVariablesSelector
-  );
+  const { firstNumber, started } = useSelector(calcVariablesSelector);
 
   const removeNumbers = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.detail === 2) {
@@ -39,12 +37,27 @@ const ResNumbers: FC = () => {
       return;
     }
 
-    if (!firstClicked) {
+    if (!started) {
       dispatch(resetFirstNumber(""));
-      setFirstClicked(true);
+      dispatch(setStarted(true));
     }
 
     dispatch(setFirstNumber(resNumber));
+  };
+
+  const floatNumber = (e: any) => {
+    const resNumber: string = e.target.innerHTML;
+    if (isConstructor || firstNumber.length >= 9) {
+      return;
+    }
+
+    if (!started) {
+      dispatch(setStarted(true));
+    }
+    if (!floatClicked) {
+      dispatch(setFirstNumber(resNumber));
+      setFloatClicked(true);
+    }
   };
 
   return (
@@ -65,7 +78,7 @@ const ResNumbers: FC = () => {
       <button className={styles.zero_button} onClick={showNumber}>
         0
       </button>
-      <button onClick={showNumber}>.</button>
+      <button onClick={floatNumber}>.</button>
     </div>
   );
 };

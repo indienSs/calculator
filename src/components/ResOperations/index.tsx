@@ -10,6 +10,7 @@ import {
   resetFirstNumber,
   resetSecondNumber,
   setOperation,
+  setStarted,
 } from "../../redux/calcVariablesReducer/slice";
 
 import styles from "./ResOperations.module.scss";
@@ -18,7 +19,7 @@ const ResOperations: FC = () => {
   const dispatch = useDispatch();
 
   const { isConstructor } = useSelector(calcItemsSelector);
-  const { firstNumber, secondNumber } = useSelector(calcVariablesSelector);
+  const { firstNumber} = useSelector(calcVariablesSelector);
 
   const removeOperations = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.detail === 2) {
@@ -35,6 +36,7 @@ const ResOperations: FC = () => {
       dispatch(setOperation(resOperation));
       dispatch(resetSecondNumber(firstNumber));
       dispatch(resetFirstNumber("0"));
+      dispatch(setStarted(false));
     }
   };
 

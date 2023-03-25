@@ -11,6 +11,7 @@ import {
   resetFirstNumber,
   resetSecondNumber,
   setOperation,
+  setStarted,
 } from "../../redux/calcVariablesReducer/slice";
 
 import styles from "./ResResultButton.module.scss";
@@ -35,6 +36,7 @@ const ResResultButton: FC = () => {
       dispatch(resetFirstNumber(res));
       dispatch(resetSecondNumber("0"));
       dispatch(setOperation(""));
+      dispatch(setStarted(false))
     }
   };
 

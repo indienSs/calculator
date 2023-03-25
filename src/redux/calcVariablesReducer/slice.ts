@@ -5,6 +5,7 @@ const initialState: CalcVariables = {
   firstNumber: "0",
   secondNumber: "0",
   operation: "",
+  started: false,
 };
 
 export const calcVariablesSlice = createSlice({
@@ -13,9 +14,6 @@ export const calcVariablesSlice = createSlice({
   reducers: {
     setFirstNumber: (state, action: PayloadAction<string>) => {
       state.firstNumber += action.payload;
-    },
-    setSecondNumber: (state, action: PayloadAction<string>) => {
-      state.secondNumber += action.payload;
     },
     setOperation: (state, action: PayloadAction<string>) => {
       state.operation = action.payload;
@@ -26,15 +24,18 @@ export const calcVariablesSlice = createSlice({
     resetSecondNumber: (state, action: PayloadAction<string>) => {
       state.secondNumber = action.payload;
     },
+    setStarted: (state, action: PayloadAction<boolean>) => {
+      state.started = action.payload;
+    },
   },
 });
 
 export const {
   setFirstNumber,
-  setSecondNumber,
   setOperation,
   resetFirstNumber,
   resetSecondNumber,
+  setStarted,
 } = calcVariablesSlice.actions;
 
 export default calcVariablesSlice.reducer;
