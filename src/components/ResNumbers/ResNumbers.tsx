@@ -1,11 +1,11 @@
 import { FC, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { calcItemsSelector } from "../../redux/calcReducer/selectors";
+import { calcItemsSelector } from "../../redux/calcReducer/slice";
 import {
   setConstructorCalc,
   setNumbersCalc,
 } from "../../redux/calcReducer/slice";
-import { calcVariablesSelector } from "../../redux/calcVariablesReducer/selectors";
+import { calcVariablesSelector } from "../../redux/calcVariablesReducer/slice";
 import {
   resetFirstNumber,
   setFirstNumber,

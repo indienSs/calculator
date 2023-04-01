@@ -1,5 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { CalcReady } from "./types";
+import { RootState } from "../store";
+
+type CalcReady = {
+  displayMoved: boolean;
+  numbersMoved: boolean;
+  operationsMoved: boolean;
+  resultButtonMoved: boolean;
+  isConstructor: boolean;
+};
 
 const initialState: CalcReady = {
   displayMoved: true,
@@ -39,4 +47,6 @@ export const {
   setConstructorCalc,
 } = calcElementsSlice.actions;
 
-export default calcElementsSlice.reducer;
+export const calcItemsSelector = (store: RootState) => store.calculator;
+
+export const calcReducer = calcElementsSlice.reducer;

@@ -4,11 +4,11 @@ import styles from "./ResultCalc.module.scss";
 
 import addItem from "../../assets/img/add-element.png";
 import { useSelector } from "react-redux/es/exports";
-import { calcItemsSelector } from "../../redux/calcReducer/selectors";
-import ResDisplay from "../ResDisplay";
-import ResOperations from "../ResOperations";
-import ResNumbers from "../ResNumbers";
-import ResResultButton from "../ResResultButton";
+import { calcItemsSelector } from "../../redux/calcReducer/slice";
+import ResDisplay from "../ResDisplay/ResDisplay";
+import ResOperations from "../ResOperations/ResOperations";
+import ResNumbers from "../ResNumbers/ResNumbers";
+import ResResultButton from "../ResResultButton/ResResultButton";
 
 const ResultCalc: FC = () => {
   const { displayMoved, numbersMoved, operationsMoved, resultButtonMoved } =

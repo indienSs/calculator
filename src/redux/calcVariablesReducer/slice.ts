@@ -1,5 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { CalcVariables } from "./types";
+import { RootState } from "../store";
+
+type CalcVariables = {
+  firstNumber: string;
+  secondNumber: string;
+  operation: string;
+  started: boolean;
+};
 
 const initialState: CalcVariables = {
   firstNumber: "0",
@@ -38,4 +45,6 @@ export const {
   setStarted,
 } = calcVariablesSlice.actions;
 
-export default calcVariablesSlice.reducer;
+export const calcVariablesSelector = (store: RootState) => store.variables;
+
+export const variablesReducer = calcVariablesSlice.reducer;

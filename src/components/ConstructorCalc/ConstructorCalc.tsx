@@ -2,12 +2,12 @@ import { FC } from "react";
 
 import styles from "./ConstructorCalc.module.scss";
 
-import CalcDisplay from "../CalcDisplay";
-import CalcOperations from "../CalcOperations";
-import CalcNumbers from "../CalcNumbers";
-import CalcResultButton from "../CalcResultButton";
+import CalcDisplay from "../CalcDisplay/CalcDisplay";
+import CalcOperations from "../CalcOperations/CalcOperations";
+import CalcNumbers from "../CalcNumbers/CalcNumbers";
+import CalcResultButton from "../CalcResultButton/CalcResultButton";
 import { useSelector } from "react-redux";
-import { calcItemsSelector } from "../../redux/calcReducer/selectors";
+import { calcItemsSelector } from "../../redux/calcReducer/slice";
 
 const ConstructorCalc: FC = () => {
   const { isConstructor } = useSelector(calcItemsSelector);

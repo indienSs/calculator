@@ -1,12 +1,14 @@
 import { FC } from "react";
 
-import ResultCalc from "./components/ResultCalc";
-import ConstructorCalc from "./components/ConstructorCalc";
+import ResultCalc from "./components/ResultCalc/ResultCalc";
+import ConstructorCalc from "./components/ConstructorCalc/ConstructorCalc";
 import runtime from "./assets/img/runtime.png";
 import constructor from "./assets/img/constructor.png";
 import { useDispatch, useSelector } from "react-redux";
-import { calcItemsSelector } from "./redux/calcReducer/selectors";
-import { setConstructorCalc } from "./redux/calcReducer/slice";
+import {
+  setConstructorCalc,
+  calcItemsSelector,
+} from "./redux/calcReducer/slice";
 
 const App: FC = () => {
   const {

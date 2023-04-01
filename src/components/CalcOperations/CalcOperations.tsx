@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useSelector } from "react-redux";
-import { calcItemsSelector } from "../../redux/calcReducer/selectors";
+import { calcItemsSelector } from "../../redux/calcReducer/slice";
 
 import styles from "./CalcOperations.module.scss";
 

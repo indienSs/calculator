@@ -1,12 +1,12 @@
 import { FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { doOperation } from "../../static/doOperation";
-import { calcItemsSelector } from "../../redux/calcReducer/selectors";
+import { calcItemsSelector } from "../../redux/calcReducer/slice";
 import {
   setButtonCalc,
   setConstructorCalc,
 } from "../../redux/calcReducer/slice";
-import { calcVariablesSelector } from "../../redux/calcVariablesReducer/selectors";
+import { calcVariablesSelector } from "../../redux/calcVariablesReducer/slice";
 import {
   resetFirstNumber,
   resetSecondNumber,

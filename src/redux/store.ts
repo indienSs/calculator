@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import calcElementsSlice from "./calcReducer/slice";
-import calcVariablesSlice from "./calcVariablesReducer/slice";
+import { calcReducer } from "./calcReducer/slice";
+import { variablesReducer } from "./calcVariablesReducer/slice";
 
 const store = configureStore({
   reducer: {
-    calculator: calcElementsSlice,
-    variables: calcVariablesSlice
+    calculator: calcReducer,
+    variables: variablesReducer,
   },
 });
 export type RootState = ReturnType<typeof store.getState>;
